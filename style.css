@@ -346,6 +346,18 @@ body {
     }
 }
 
+@keyframes before-front-responsive {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
 @media (max-width: 768px) {
     .content-image {
         .container {
@@ -360,7 +372,10 @@ body {
                 }
             }
             .front::before {
-                animation: d;
+                width: 0;
+                height: 100%;
+                transition: width 1.5s ease;
+                animation: before-front-responsive 4s linear infinite;
             }
             .content {
                 margin-top: 10px;
