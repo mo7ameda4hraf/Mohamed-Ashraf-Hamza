@@ -702,4 +702,136 @@ body {
         top: 22px;
         z-index: 3;
     }
+    .container {
+        div {
+            justify-content: space-between;
+            .project {
+                transition: 0.6s;
+                position: relative;
+                margin-top: 80px;
+                width: 48%;
+                box-shadow: 3px 4px 10px black;
+                padding: 20px;
+                border-radius: 10px;
+                background-color: var(--second-color);
+                .logo-img {
+                    width: 75px;
+                    position: absolute;
+                    right: -20px;
+                    top: -36px;
+                    background-color: black;
+                    border-radius: 50%;
+                    border: 7px solid #252525;
+                    transition: 1s;
+                }
+                .container-photo {
+                    overflow: hidden;
+                    position: relative;
+                    .main-photo {
+                        width: -webkit-fill-available;
+                        border-radius: 10px;
+                    }
+                }
+                .container-photo::after {
+                    content: "";
+                    position: absolute;
+                    width: 70px;
+                    height: 200%;
+                    top: -35px;
+                    background-color: rgba(255, 255, 255, 0.315);
+                    transform: rotate(23deg);
+                    right: -164px;
+                }
+                h3 {
+                    color: var(--main-color);
+                    margin: 20px 0;
+                }
+                p {
+                    color: white;
+                    font-size: 15px;
+                    font-weight: 500;
+                    line-height: 26px;
+                }
+                .end {
+                    margin-top: 30px;
+                    display: flex;
+                    justify-content: space-between;
+                    a {
+                        width: 150px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 45px;
+                        color: black;
+                        background-color: var(--main-color);
+                        border-radius: 10px;
+                        text-decoration: none;
+                        font-weight: bold;
+                        font-size: 18px;
+                        i {
+                            color: black;
+                            margin-left: 5px;
+                        }
+                    }
+                    a:hover {
+                        background-color: var(--main-hovercolor);
+                        color: white;
+                        transform: scale(1.02);
+                        i {
+                            color: white;
+                        }
+                    }
+                }
+            }
+            .project:hover {
+                transform: scale(1.02);
+                .logo-img {
+                    transform: rotate(45deg);
+                }
+                .container-photo::after {
+                    animation: flash 1s linear;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-part {
+        .container {
+            div {
+                display: block !important;
+                .project {
+                    width: 100% !important;
+                    margin-top: 60px !important;
+                    .logo-img {
+                        width: 65px !important;
+                    }
+                    .end {
+                        display: flex !important;
+                        a {
+                            width: 120px !important;
+                            height: 37px !important;
+                            font-size: 16px !important;
+                        }
+                    }
+                    .container-photo::after {
+                        width: 30px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes flash {
+    0% {
+        right: -164px;
+    }
+    50% {
+        right: 100%;
+    }
+    100% {
+        right: -164px;
+    }
 }
