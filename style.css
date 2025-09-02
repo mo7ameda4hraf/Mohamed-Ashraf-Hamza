@@ -959,6 +959,9 @@ body {
 @media (max-width: 800px) {
     .communication-part {
         .container {
+            p {
+                width: 100% !important;
+            }
             .content {
                 flex-direction: column !important;
                 align-items: center !important;
