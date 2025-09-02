@@ -15,6 +15,9 @@
 //     }
 // };
 
+//-------------------------------------------------------------------------------------------------------------
+
+// scroll bar:
 
 let ele = document.querySelector(".scroll");
 
@@ -28,50 +31,36 @@ window.addEventListener("scroll", function() {
 
 
 //------------------------------------------------------------------------------------------------------------------
-let navbar = document.querySelector(".navbar");
 
-let translateBtn = document.querySelector(".translate");
-let isArabic = false;
+//type writer effect:
 
-translateBtn.addEventListener("click", () => {
-    if (!isArabic) {
-        document.querySelector(".about p").textContent = " نبذه عني";
-        document.querySelector(".skills p").textContent = "مهاراتي";
-        document.querySelector(".projects p").textContent = "مشاريعي";
-        document.querySelector(".communication p").textContent = "تواصل معي";
-        translateBtn.querySelector("span").textContent = "En";
-        isArabic = true;
-        document.querySelector(".menu-items").style.textAlign = "right";
+let speed = 100;
 
-        document.querySelector(".txt").style.textAlign = "right";
-        document.querySelector(".me").textContent = "انا";
-        document.querySelector(".name").textContent = "محمد اشرف حمزه";
-        document.querySelector(".p-work").textContent = "انا اعمل";
-        document.querySelector(".work").textContent = "مطور واجهه امامي";
-        document.querySelector(".content").style.direction = "rtl"
-        document.querySelector(".content-image .btn").innerHTML = "نبذه مختصره عني"
+function towrite(element, text) {
+    let i = 0;
 
-        //----------------------------------------------------end header------------------------------
-    } else {;
-
-        document.querySelector(".about p").textContent = "About me";
-        document.querySelector(".skills p").textContent = "Skills";
-        document.querySelector(".projects p").textContent = "Projects";
-        document.querySelector(".communication p").textContent = "Communication";
-        translateBtn.querySelector("span").textContent = "Ar";
-        isArabic = false;
-        document.querySelector(".menu-items").style.textAlign = "left";
-
-        document.querySelector(".txt").style.textAlign = "left";
-        document.querySelector(".me").textContent = "I am";
-        document.querySelector(".name").textContent = "Mohamed Ashraf Hamza";
-        document.querySelector(".p-work").textContent = "I work as a";
-        document.querySelector(".work").textContent = "Front End Developer";
-        document.querySelector(".content").style.direction = "ltr"
-        document.querySelector(".content-image .btn").innerHTML = "A brief about me";
-
-        //----------------------------------------------------end header------------------------------
-
-
+    function typing() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(typing, speed);
+        }
     }
+    typing();
+}
+
+document.querySelectorAll(".head").forEach(el => {
+    const text = el.getAttribute("data-text");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                el.textContent = "";
+                towrite(el, text);
+                observer.unobserve(el);
+            }
+        });
+    });
+
+    observer.observe(el);
 });
