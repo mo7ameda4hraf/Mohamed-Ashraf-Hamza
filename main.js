@@ -1,22 +1,3 @@
-// let btn = document.getElementById("btn");
-// let para = document.querySelector("p");
-// let bodyx = document.querySelector("body");
-// let mood = "light";
-
-// btn.onclick = function() {
-//     if (mood === "light") {
-//         para.style.color = "green"
-//         bodyx.style.background = "white"
-//         mood = "dark"
-//     } else {
-//         para.style.color = "white"
-//         bodyx.style.background = "linear-gradient(to right, black, #020a31)"
-//         mood = "light"
-//     }
-// };
-
-//-------------------------------------------------------------------------------------------------------------
-
 // scroll bar:
 
 let ele = document.querySelector(".scroll");
@@ -63,4 +44,30 @@ document.querySelectorAll(".head").forEach(el => {
     });
 
     observer.observe(el);
+});
+
+
+
+//mood:
+const container = document.querySelector('.mood');
+const box = document.querySelector('.box');
+const innerCircle = document.querySelector('.inner-circle');
+const body = document.body;
+
+let isDark = true;
+
+container.addEventListener('click', () => {
+    box.classList.toggle('box-toggle');
+    innerCircle.classList.toggle('inner-circle-toggle');
+    container.classList.toggle('container-toggle');
+
+    if (isDark) {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        isDark = false;
+    } else {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        isDark = true;
+    }
 });

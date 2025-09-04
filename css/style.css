@@ -36,8 +36,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
-    width: 90%;
+    width: 90% !important;
     margin: auto;
 }
 
@@ -55,6 +54,50 @@ body {
         height: 64px;
         align-items: center;
     }
+}
+
+.mood {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    .box {
+        height: 30px;
+        width: 66px;
+        background: #838383;
+        border-radius: 190px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .3s ease-in-out;
+    }
+}
+
+body.light-mode {
+    background-color: white;
+    color: #fff;
+}
+
+.box-toggle {
+    background: white;
+}
+
+.inner-circle {
+    position: absolute;
+    left: 11px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: white;
+    transition: .3s ease-in-out 0s;
+}
+
+.inner-circle-toggle {
+    left: 37px;
+    background-color: #000;
 }
 
 .menu-items {
@@ -120,7 +163,6 @@ body {
     .navbar-container {
         display: block;
         position: relative;
-        height: 64px;
     }
     .navbar-container input[type="checkbox"] {
         position: absolute;
@@ -706,7 +748,7 @@ body {
         div {
             justify-content: space-between;
             .project {
-                border-radius: 138px 10px 10px 10px;
+                border-radius: 10px;
                 transition: 0.6s;
                 position: relative;
                 margin-top: 80px;
@@ -725,7 +767,7 @@ body {
                     transition: 1s;
                 }
                 .container-photo {
-                    border-radius: 118px 10px 10px 10px;
+                    border-radius: 10px;
                     overflow: hidden;
                     position: relative;
                     .main-photo {
@@ -938,6 +980,7 @@ body {
                 }
             }
             .box:hover {
+                box-shadow: 0 0 10px var(--main-color);
                 transform: scale(1.02);
             }
         }
