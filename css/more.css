@@ -90,9 +90,6 @@ body {
             a:hover {
                 transform: scale(1.02);
             }
-            .live:hover {
-                background-color: var(--main-hovercolor);
-            }
         }
     }
 }
