@@ -146,6 +146,14 @@ body.light-mode {
     color: var(--main-color)
 }
 
+@media (min-width: 768px) {
+    .navbar a {
+        i {
+            display: none;
+        }
+    }
+}
+
 @media (max-width: 768px) {
     .translate {
         margin-left: 0px !important;
@@ -951,11 +959,11 @@ body.light-mode {
         .more-project {
             margin-top: 60px;
             a {
-                width: 200px;
+                width: 250px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 65px;
+                height: 55px;
                 color: black;
                 background-color: var(--main-color);
                 border-radius: 10px;
@@ -963,12 +971,13 @@ body.light-mode {
                 font-weight: bold;
                 font-size: 22px;
                 margin: 0 auto;
+                opacity: 0.5;
             }
-            a:hover {
+            /* a:hover {
                 background-color: var(--main-hovercolor);
                 color: white;
                 transform: scale(1.05);
-            }
+            } */
         }
     }
 }
